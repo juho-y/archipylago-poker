@@ -1,0 +1,28 @@
+model_list:
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: openai/gpt-4o-mini
+  - model_name: gpt-4o
+    litellm_params:
+      model: openai/gpt-4o
+  - model_name: gpt-4o
+    litellm_params:
+      model: azure/gpt-4o
+      api_base: os.environ/AZURE_OPENAI_API_BASE
+  - model_name: judge-model
+    litellm_params:
+      model: gemini/gemini-2.0-flash-001
+      api_key: os.environ/GEMINI_API_KEY
+      rpm: 2000
+      num_retries: 1
+ 
+litellm_settings:
+  drop_params: true
+  telemetry: false
+  default_fallbacks: ["gpt-4o"]
+
+router_settings:
+  routing_strategy: latency-based-routing
+  allowed_fails: 1
+  cooldown_time: 60
+  num_retries: 1

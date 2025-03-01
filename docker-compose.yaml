@@ -1,0 +1,13 @@
+services:  
+  llm-proxy:
+    image: ghcr.io/berriai/litellm:main-stable
+    volumes:
+     - ./litellm-config.yaml:/app/config.yaml
+    command:
+     - "--config=/app/config.yaml"
+    ports:
+      - 127.0.0.1:4000:4000
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

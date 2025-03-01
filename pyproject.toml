@@ -1,0 +1,14 @@
+[project]
+name = "archipylago"
+version = "0.1.0"
+description = "Archipylago Python meetup demo project"
+authors = [ {name = "Juho Ylikylä", email = "jjylik@gmail.com"}, ]
+requires-python = ">= 3.13"
+dependencies = [
+    "devtools>=0.12.2",
+    "pydantic-ai>=0.0.30",
+    "python-dotenv>=1.0.0",
+    "ruff>=0.9.9",
+    "traceloop-sdk>=0.38.8",
+]
+
